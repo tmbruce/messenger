@@ -6,6 +6,7 @@ import '../screens/threadScreen.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../screens/register.dart';
 
+
 class LoginScreen extends StatefulWidget {
   static String id = 'LoginScreen';
   @override
@@ -20,6 +21,14 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   var _auth = FirebaseAuth.instance;
   var busy = false;
+
+  @override
+  void dispose(){
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
 
   Widget showAlert() {
     if (_error != null) {
